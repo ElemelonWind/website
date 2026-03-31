@@ -1,0 +1,53 @@
+{
+  "projects": [
+    {
+      "title": "WordHawk",
+      "tools": ["Vite", "React", "Tailwind", "OCR", "RPi", "GCode"],
+      "description": "A repurposed 3D printer that plays Word Hunt for you! Won Best Use of MemryX at MHacks 2025.",
+      "link": "https://github.com/TSKoduru/mhacks-gamehawk",
+      "image": "/images/projects/WordHawk.png"
+    },
+    {
+      "title": "wubwub",
+      "tools": ["Vite", "React", "Tailwind", "Flask", "Arduino", "Mediapipe", "OpenCV"],
+      "description": "An interactive music visualizer that uses hand gestures to control music playback and audio effects. Won grand prize at BigRed Hacks 2025.",
+      "link": "https://github.com/cindyzli/wubwub",
+      "image": "/images/projects/wubwub.png"
+    },
+    {
+      "title": "Pi-Pal",
+      "tools": ["Python", "OpenCV", "Mediapipe", "Next.js", "MongoDB", "RPi", "Tailwind"],
+      "description": "A gesture-controlled hospital room system powered by an advanced computer vision model and demo-ed with a Raspberry Pi. Won grand prize at Hoya Hacks 2025.",
+      "link": "https://github.com/cindyzli/pi-pal",
+      "image": "/images/projects/PiPal.png"
+    },
+    {
+      "title": "Osulation",
+      "tools": ["Python", "Roboflow", "Mediapipe", "Streamlit", "Matlab"],
+      "description": "A program that uses computer vision to play Osu with hand gestures. Won Best Use of Roboflow at MHacks 17.",
+      "link": "https://github.com/elise-yz/osulation",
+      "image": "/images/projects/Osulation.gif"
+    },
+    {
+      "title": "Accel",
+      "tools": ["NextJS", "Tailwind", "Flask", "Amazon Bedrock", "Langchain", "Hume EVI"],
+      "description": "An empathetic tutor that uses AI to provide personalized feedback to students. Won Best Use of Intel at Berkeley AI Hackathon 2024.",
+      "link": "https://github.com/Accel-EmpatheticTutor/Accel",
+      "image": "/images/projects/Accel.png"
+    },
+    {
+      "title": "OneVote",
+      "tools": ["NextJS", "OpenAI API", "Google Cloud", "Tailwind", "CSS"],
+      "description": "AI chatbot tool that allows users to ask questions about candidate information, recent news, and more. Won Social Impact at MHacks 16.",
+      "link": "https://github.com/ElemelonWind/one-vote",
+      "image": "/images/projects/OneVote.png"
+    },
+    {
+      "title": "Tunesphere",
+      "tools": ["ReactJS", "Spotify API", "Jupyter Notebook", "Tensorflow", "CSS"],
+      "description": "Song recommendation system that utilizes sentiment analysis to introduce new genres to listeners. Won Best Design at HackTJ 10.0.",
+      "link": "https://github.com/ElemelonWind/tunesphere",
+      "image": "/images/projects/Tunesphere.png"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "sections": [
+    {
+      "type": "intro",
+      "title": "The Musical Side",
+      "text": "When I'm not writing code or debugging circuits, you'll find me at the piano. Music has been a constant companion throughout my life — from classical training to composing my own pieces."
+    },
+    {
+      "type": "gallery",
+      "title": "At the Keys",
+      "images": [
+        { "src": "/images/hobby/piano1.jpg", "caption": "Placeholder - add your piano photos here" },
+        { "src": "/images/hobby/piano2.jpg", "caption": "Placeholder - add your piano photos here" },
+        { "src": "/images/hobby/piano3.jpg", "caption": "Placeholder - add your piano photos here" }
+      ]
+    },
+    {
+      "type": "compositions",
+      "title": "Compositions",
+      "pieces": [
+        { "title": "Add your composition title", "description": "Add description here", "link": "" }
+      ]
+    },
+    {
+      "type": "spotify",
+      "title": "What I've Been Listening To",
+      "embedUrl": "https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator&theme=0"
+    }
+  ]
+}

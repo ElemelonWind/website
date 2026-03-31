@@ -1,0 +1,73 @@
+{
+  "education": [
+    {
+      "institution": "University of Michigan - Ann Arbor",
+      "degree": "BSE in Computer Engineering & Robotics",
+      "date": "May 2026"
+    },
+    {
+      "institution": "Thomas Jefferson High School for Science and Technology",
+      "degree": "Advanced Studies Diploma",
+      "date": "June 2023"
+    }
+  ],
+  "work": [
+    {
+      "title": "Software Engineering Intern",
+      "company": "Jane Street",
+      "date": "May 2026 - August 2026"
+    },
+    {
+      "title": "Software Engineering Intern",
+      "company": "Google - YouTube",
+      "date": "May 2025 - August 2025"
+    },
+    {
+      "title": "STEP Intern",
+      "company": "Google - Geo",
+      "date": "May 2024 - August 2024"
+    },
+    {
+      "title": "Founding Full-Stack Engineer",
+      "company": "Vytal",
+      "date": "June 2023 - January 2025"
+    },
+    {
+      "title": "Software Engineer Intern",
+      "company": "Yext",
+      "date": "June 2022 - August 2022"
+    },
+    {
+      "title": "Web Development Intern",
+      "company": "DataVediK",
+      "date": "May 2021 - August 2021"
+    }
+  ],
+  "research": [
+    {
+      "title": "Atombot (Swarm Robotics) Research Team",
+      "role": "Robotics Undergraduate Research",
+      "date": "January 2025 - Present"
+    },
+    {
+      "title": "ATLAS Experiment at CERN",
+      "role": "Physics Undergraduate Research",
+      "date": "January 2024 - December 2024"
+    },
+    {
+      "title": "M-Fly: Design, Build, Fly",
+      "role": "Flight Systems Lead",
+      "date": "August 2023 - Present"
+    },
+    {
+      "title": "Perplexus Solver",
+      "role": "TJHSST Computer Systems Laboratory",
+      "date": "August 2022 - May 2023"
+    },
+    {
+      "title": "Automated Ontology Generation",
+      "role": "George Mason University (ASSIP)",
+      "date": "June 2022 - August 2022"
+    }
+  ]
+}

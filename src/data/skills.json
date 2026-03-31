@@ -1,0 +1,55 @@
+{
+  "categories": [
+    {
+      "name": "Languages",
+      "skills": [
+        { "name": "Java", "startYear": 2019 },
+        { "name": "JavaScript/TypeScript", "startYear": 2020 },
+        { "name": "HTML/CSS", "startYear": 2020 },
+        { "name": "Python", "startYear": 2021 },
+        { "name": "C++/C", "startYear": 2022 },
+        { "name": "Verilog", "startYear": 2024 },
+        { "name": "R", "startYear": 2024 },
+        { "name": "Assembly", "startYear": 2024 }
+      ]
+    },
+    {
+      "name": "Fullstack",
+      "skills": [
+        { "name": "React", "startYear": 2021 },
+        { "name": "Flask", "startYear": 2021 },
+        { "name": "Electron", "startYear": 2021 },
+        { "name": "Firebase", "startYear": 2022 },
+        { "name": "MongoDB", "startYear": 2022 },
+        { "name": "Android Studio", "startYear": 2022 },
+        { "name": "Next.js", "startYear": 2023 },
+        { "name": "Tailwind", "startYear": 2023 },
+        { "name": "AWS", "startYear": 2023 },
+        { "name": "Angular", "startYear": 2024 },
+        { "name": "SQL", "startYear": 2024 }
+      ]
+    },
+    {
+      "name": "Robotics / Hardware",
+      "skills": [
+        { "name": "PCB Design", "startYear": 2022 },
+        { "name": "CAD/Prototyping", "startYear": 2023 },
+        { "name": "ROS", "startYear": 2023 },
+        { "name": "VHDL", "startYear": 2024 },
+        { "name": "Controls", "startYear": 2024 },
+        { "name": "Embedded Systems", "startYear": 2025 }
+      ]
+    },
+    {
+      "name": "Other",
+      "skills": [
+        { "name": "Git", "startYear": 2020 },
+        { "name": "Linux", "startYear": 2021 },
+        { "name": "Windows", "startYear": 2022 },
+        { "name": "Operating Systems", "startYear": 2024 },
+        { "name": "Matlab", "startYear": 2025 },
+        { "name": "Blood, sweat, & tears", "startYear": 2006 }
+      ]
+    }
+  ]
+}
