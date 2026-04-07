@@ -1,30 +1,20 @@
 {
-  "sections": [
-    {
-      "type": "intro",
-      "title": "The Musical Side",
-      "text": "When I'm not writing code or debugging circuits, you'll find me at the piano. Music has been a constant companion throughout my life — from classical training to composing my own pieces."
-    },
-    {
-      "type": "gallery",
-      "title": "At the Keys",
-      "images": [
-        { "src": "/images/hobby/piano1.jpg", "caption": "Placeholder - add your piano photos here" },
-        { "src": "/images/hobby/piano2.jpg", "caption": "Placeholder - add your piano photos here" },
-        { "src": "/images/hobby/piano3.jpg", "caption": "Placeholder - add your piano photos here" }
-      ]
-    },
-    {
-      "type": "compositions",
-      "title": "Compositions",
-      "pieces": [
-        { "title": "Add your composition title", "description": "Add description here", "link": "" }
-      ]
-    },
-    {
-      "type": "spotify",
-      "title": "What I've Been Listening To",
-      "embedUrl": "https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator&theme=0"
-    }
-  ]
+  "intro": "Music has been a constant companion throughout my life (and has caused me to throw many a tantrum in childhood). These days, we have a friendlier relationship - here are snippets of some of my recent projects!",
+  "gallery": [
+    { "src": "/images/hobby/hobby1.jpg", "caption": "Gradients 2026" },
+    { "src": "/images/hobby/hobby2.jpg", "caption": "The Hunchback of Notre Dame" },
+    { "src": "/images/hobby/hobby3.jpg", "caption": "Jesus Christ Superstar" },
+    { "src": "/images/hobby/hobby4.jpg", "caption": "Catch Me If You Can" },
+    { "src": "/images/hobby/hobby5.jpg", "caption": "Heathers" },
+    { "src": "/images/hobby/hobby6.png", "caption": "stick straight posture since day 1" }
+  ],
+  "books": [
+    { "title": "Add a book title", "author": "Author Name", "cover": "/images/books/book1.jpg", "note": "A short reason this one stuck with me." },
+    { "title": "Add a book title", "author": "Author Name", "cover": "/images/books/book2.jpg", "note": "A short reason this one stuck with me." },
+    { "title": "Add a book title", "author": "Author Name", "cover": "/images/books/book3.jpg", "note": "A short reason this one stuck with me." },
+    { "title": "Add a book title", "author": "Author Name", "cover": "/images/books/book4.jpg", "note": "A short reason this one stuck with me." }
+  ],
+  "spotify": {
+    "embedUrl": "https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator&theme=0"
+  }
 }

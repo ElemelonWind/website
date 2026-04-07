@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
    orbiting rings, and a pulsing node network
    ═══════════════════════════════════════════════════ */
 export function HomeDecorations() {
-  const c = '#00d4ff';
+  const c = '#a855f7';
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
@@ -216,8 +216,8 @@ export function HobbyDecorations() {
    (keeping this one since you liked it)
    ═══════════════════════════════════════════════════ */
 export function ProjectsDecorations() {
-  const c = '#4ade80';
-  const c2 = 'rgba(251, 146, 60, 0.8)';
+  const c = '#f43f5e';
+  const c2 = 'rgba(236, 72, 153, 0.8)';
 
   const holds = [
     { top: '12%', right: '6%', size: 14, color: c, delay: 0 },
@@ -278,7 +278,7 @@ export function ProjectsDecorations() {
       ))}
 
       <div className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full" style={{ background: `radial-gradient(circle, ${c}08 0%, transparent 60%)` }} />
-      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full" style={{ background: `radial-gradient(circle, rgba(251,146,60,0.05) 0%, transparent 60%)` }} />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full" style={{ background: `radial-gradient(circle, rgba(236,72,153,0.05) 0%, transparent 60%)` }} />
     </div>
   );
 }
@@ -288,7 +288,7 @@ export function ProjectsDecorations() {
    ink splatter dots, tall bookshelf spines
    ═══════════════════════════════════════════════════ */
 export function AboutDecorations() {
-  const c = '#d4a574';
+  const c = '#4ade80';
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">

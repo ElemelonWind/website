@@ -1,12 +1,12 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { Send, CheckCircle, AlertCircle, Music, BookOpen } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import PageTransition from '../components/PageTransition';
 import SectionHeading from '../components/SectionHeading';
 import { AboutDecorations } from '../components/PageDecorations';
 import personal from '../data/personal.json';
-import experience from '../data/experience.json';
+import music from '../data/hobby.json';
 
 const A = 'var(--accent-about)';
 
@@ -27,6 +27,7 @@ function PhotoCarousel() {
     '/images/me/me5.jpg',
   ];
   const [current, setCurrent] = useState(0);
+  const [failed, setFailed] = useState({});
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -35,28 +36,46 @@ function PhotoCarousel() {
     return () => clearInterval(timer);
   }, []);
 
+  const isFailed = failed[current];
+
   return (
     <motion.div
       {...fadeUp(0.1)}
-      style={{ position: 'relative', width: '100%', maxWidth: 420, aspectRatio: '3/4', borderRadius: 20, overflow: 'hidden', background: 'var(--bg-card)', border: '1px solid var(--border-color)' }}
+      style={{ position: 'relative', width: '75%', margin: '0 auto', maxWidth: 420, aspectRatio: '3/4', borderRadius: 20, overflow: 'hidden', background: 'var(--bg-card)', border: '1px solid var(--border-color)' }}
     >
       <AnimatePresence mode="wait">
-        <motion.img
-          key={current}
-          src={photos[current]}
-          alt={`Photo ${current + 1}`}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8 }}
-          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-          onError={(e) => {
-            e.target.style.opacity = '0';
-          }}
-        />
+        {isFailed ? (
+          <motion.div
+            key={`fallback-${current}`}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
+            style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 14, padding: 32, textAlign: 'center', background: 'var(--accent-about-dim)' }}
+          >
+            <div style={{ width: 64, height: 64, borderRadius: 16, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--accent-about-glow)' }}>
+              <Music size={26} style={{ color: A }} />
+            </div>
+            <p className="text-small" style={{ color: 'var(--text-secondary)', maxWidth: 240, lineHeight: 1.6 }}>
+              Drop a photo at <code style={{ color: A, fontSize: '0.78rem' }}>{photos[current]}</code>
+            </p>
+          </motion.div>
+        ) : (
+          <motion.img
+            key={current}
+            src={photos[current]}
+            alt={`Photo ${current + 1}`}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+            onError={() => setFailed(prev => ({ ...prev, [current]: true }))}
+          />
+        )}
       </AnimatePresence>
       {/* Photo indicator dots */}
-      <div style={{ position: 'absolute', bottom: 16, left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: 8 }}>
+      <div style={{ position: 'absolute', bottom: 16, left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: 8, zIndex: 2 }}>
         {photos.map((_, i) => (
           <button
             key={i}
@@ -119,16 +138,72 @@ function ContactForm() {
   );
 }
 
-function ExperienceCard({ title, subtitle, date, accentLine, delay = 0 }) {
+function MusicGallery({ images }) {
   return (
-    <motion.div {...fadeUp(delay)} className="card" style={{ display: 'flex', alignItems: 'stretch', overflow: 'hidden' }}>
-      <div style={{ width: 5, flexShrink: 0, background: accentLine }} />
-      <div style={{ padding: '18px 24px', flex: 1 }}>
-        <p className="text-card-title">{title}</p>
-        <p className="text-small" style={{ color: 'var(--text-secondary)', marginTop: 10 }}>{subtitle}</p>
-        <p className="text-small" style={{ color: 'var(--text-dim)', marginTop: 6 }}>{date}</p>
-      </div>
-    </motion.div>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))', gap: 24 }}>
+      {images.map((img, i) => (
+        <motion.figure
+          key={i}
+          {...fadeUp(i * 0.06)}
+          className="card"
+          style={{ margin: 0, overflow: 'hidden', borderRadius: 16, display: 'flex', flexDirection: 'column' }}
+        >
+          <div style={{ position: 'relative', aspectRatio: '4/3', overflow: 'hidden', background: 'var(--bg-card)' }}>
+            <img
+              src={img.src}
+              alt={img.caption}
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.6s' }}
+              onError={(e) => {
+                e.target.style.display = 'none';
+                e.target.nextElementSibling.style.display = 'flex';
+              }}
+            />
+            <div style={{ display: 'none', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%', position: 'absolute', inset: 0 }}>
+              <Music size={28} style={{ color: A, opacity: 0.4 }} />
+            </div>
+          </div>
+          <figcaption className="text-small" style={{ padding: '14px 18px', color: 'var(--text-secondary)' }}>
+            {img.caption}
+          </figcaption>
+        </motion.figure>
+      ))}
+    </div>
+  );
+}
+
+function Bookshelf({ books }) {
+  return (
+    <div className="stack-lg">
+      {books.map((book, i) => (
+        <motion.div
+          key={i}
+          {...fadeUp(i * 0.06)}
+          className="card"
+          style={{ display: 'flex', alignItems: 'stretch', gap: 18, padding: 18 }}
+        >
+          <div style={{ width: 56, minHeight: 84, borderRadius: 6, overflow: 'hidden', flexShrink: 0, position: 'relative', background: 'var(--accent-about-glow)', boxShadow: '0 4px 14px rgba(0,0,0,0.3)' }}>
+            {book.cover && (
+              <img
+                src={book.cover}
+                alt={book.title}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', position: 'absolute', inset: 0 }}
+                onError={(e) => { e.target.style.display = 'none'; e.target.nextElementSibling.style.display = 'flex'; }}
+              />
+            )}
+            <div style={{ display: book.cover ? 'none' : 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%', position: 'absolute', inset: 0 }}>
+              <BookOpen size={20} style={{ color: A, opacity: 0.6 }} />
+            </div>
+          </div>
+          <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <p className="text-card-title">{book.title}</p>
+            <p className="text-tiny" style={{ color: A, marginTop: 4, fontWeight: 500, letterSpacing: '0.02em' }}>{book.author}</p>
+            {book.note && (
+              <p className="text-small mt-sm" style={{ color: 'var(--text-secondary)', lineHeight: 1.6 }}>{book.note}</p>
+            )}
+          </div>
+        </motion.div>
+      ))}
+    </div>
   );
 }
 
@@ -142,6 +217,8 @@ export default function About() {
         <style>{`
           .about-hero-grid { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: center; }
           @media (min-width: 768px) { .about-hero-grid { grid-template-columns: 1fr auto; gap: 64px; } }
+          .music-split { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: start; }
+          @media (min-width: 1024px) { .music-split { grid-template-columns: 1.1fr 1fr; gap: 56px; } }
         `}</style>
         <section className="page-hero" style={{ position: 'relative', zIndex: 10 }}>
           <div className="page-container">
@@ -161,44 +238,57 @@ export default function About() {
           </div>
         </section>
 
-        {/* Experience */}
+        {/* Music — intro + gallery */}
         <section className="section-gap" style={{ position: 'relative', zIndex: 10 }}>
           <div className="page-container">
-            <SectionHeading accent={A}>Experience</SectionHeading>
-            <style>{`
-              .exp-grid { display: grid; grid-template-columns: 1fr; gap: 48px; }
-              @media (min-width: 1024px) { .exp-grid { grid-template-columns: 1fr 1fr; gap: 64px; } }
-            `}</style>
-            <div className="exp-grid">
+            <SectionHeading accent={A}>Music</SectionHeading>
+            <motion.p
+              {...fadeUp()}
+              className="text-body"
+              style={{ color: 'var(--text-secondary)', lineHeight: 1.8, maxWidth: 720, marginBottom: 40 }}
+            >
+              {music.intro}
+            </motion.p>
+            <MusicGallery images={music.gallery} />
+          </div>
+        </section>
+
+        {/* Compositions + Currently Listening — side by side on wide screens */}
+        <section className="section-gap" style={{ position: 'relative', zIndex: 10 }}>
+          <div className="page-container">
+            <div className="music-split">
               <div>
-                <p className="text-label mb-xl" style={{ color: A }}>Education</p>
-                <div className="stack-lg">
-                  {experience.education.map((edu, i) => (
-                    <ExperienceCard
-                      key={i}
-                      title={edu.institution}
-                      subtitle={edu.degree}
-                      date={edu.date}
-                      accentLine={A}
-                      delay={i * 0.07}
-                    />
-                  ))}
-                </div>
+                <SectionHeading accent={A}>Bookshelf</SectionHeading>
+                <motion.p
+                  {...fadeUp()}
+                  className="text-small"
+                  style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: 28 }}
+                >
+                  The ones I've talked my friends' ears off about.
+                </motion.p>
+                <Bookshelf books={music.books} />
               </div>
               <div>
-                <p className="text-label mb-xl" style={{ color: A }}>Work</p>
-                <div className="stack-lg">
-                  {experience.work.map((job, i) => (
-                    <ExperienceCard
-                      key={i}
-                      title={`${job.title} @ ${job.company}`}
-                      subtitle={job.company}
-                      date={job.date}
-                      accentLine={`hsl(${28 + i * 5}, 55%, ${68 - i * 5}%)`}
-                      delay={i * 0.07}
-                    />
-                  ))}
-                </div>
+                <SectionHeading accent={A}>On Repeat</SectionHeading>
+                <motion.p
+                  {...fadeUp()}
+                  className="text-small"
+                  style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: 28 }}
+                >
+                  What's been soundtracking my life lately.
+                </motion.p>
+                <motion.div {...fadeUp(0.1)} className="card" style={{ overflow: 'hidden', padding: 12 }}>
+                  <iframe
+                    src={music.spotify.embedUrl}
+                    width="100%"
+                    height="380"
+                    frameBorder="0"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"
+                    style={{ borderRadius: 12, display: 'block' }}
+                    title="Spotify Playlist"
+                  />
+                </motion.div>
               </div>
             </div>
           </div>
@@ -214,7 +304,7 @@ export default function About() {
                 className="text-body"
                 style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: 40 }}
               >
-                Have a question or want to work together? Drop me a message.
+                Want to roast this website? Drop me a message.
               </motion.p>
               <motion.div {...fadeUp(0.1)}>
                 <ContactForm />

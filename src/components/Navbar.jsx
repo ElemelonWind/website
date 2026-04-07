@@ -5,14 +5,12 @@ import { Menu, X } from 'lucide-react';
 
 const navItems = [
   { path: '/', label: 'Home', theme: 'home' },
-  { path: '/hobby', label: 'Hobby', theme: 'hobby' },
   { path: '/projects', label: 'Projects', theme: 'projects' },
   { path: '/about', label: 'About', theme: 'about' },
 ];
 
 const accentMap = {
   home: 'var(--accent-home)',
-  hobby: 'var(--accent-hobby)',
   projects: 'var(--accent-projects)',
   about: 'var(--accent-about)',
 };

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
+import { ExternalLink, Cpu, Plane, Wrench, Code2, Terminal } from 'lucide-react';
 import { GitHubIcon } from '../components/SocialIcons';
 import PageTransition from '../components/PageTransition';
 import SectionHeading from '../components/SectionHeading';
@@ -43,7 +43,7 @@ function TypingHero() {
 }
 
 function HeroVisual() {
-  const c = '#00d4ff';
+  const c = '#a855f7';
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.8 }}
@@ -106,8 +106,10 @@ function HeroVisual() {
   );
 }
 
+const CATEGORY_ICONS = { Cpu, Plane, Wrench, Code2, Terminal };
+
 function SkillCategory({ category, index }) {
-  const [open, setOpen] = useState(false);
+  const Icon = CATEGORY_ICONS[category.icon] || Code2;
 
   return (
     <motion.div
@@ -115,43 +117,51 @@ function SkillCategory({ category, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.07, duration: 0.4 }}
-      className="card"
-      style={{ overflow: 'hidden' }}
+      className="card card-pad"
+      style={{ position: 'relative', overflow: 'hidden' }}
     >
-      <button
-        onClick={() => setOpen(!open)}
-        className="card-pad"
-        style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', textAlign: 'left', cursor: 'pointer', background: 'transparent', border: 'none', color: 'inherit', fontFamily: 'inherit' }}
-      >
-        <span className="text-small" style={{ color: A, fontWeight: 600 }}>{category.name}</span>
-        <span style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <span className="text-tiny" style={{ color: 'var(--text-dim)' }}>{category.skills.length}</span>
-          {open ? <ChevronUp size={14} color="var(--text-dim)" /> : <ChevronDown size={14} color="var(--text-dim)" />}
-        </span>
-      </button>
-      {open && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          style={{ padding: '12px 24px 24px', borderTop: '1px solid var(--border-color)', display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '16px 32px' }}
-        >
-          {category.skills.map(skill => {
-            const years = currentYear - skill.startYear;
-            const pct = Math.min((years / 10) * 100, 100);
-            return (
-              <div key={skill.name}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 10 }}>
-                  <span className="text-small" style={{ fontWeight: 500 }}>{skill.name}</span>
-                  <span className="text-tiny" style={{ color: 'var(--text-dim)', fontVariantNumeric: 'tabular-nums' }}>{years}yr{years !== 1 ? 's' : ''}</span>
-                </div>
-                <div style={{ height: 5, background: 'var(--border-color)', borderRadius: 99, overflow: 'hidden' }}>
-                  <div className="skill-bar-fill" style={{ height: '100%', width: `${pct}%`, background: `linear-gradient(90deg, ${A}, ${A}80)`, borderRadius: 99 }} />
-                </div>
-              </div>
-            );
-          })}
-        </motion.div>
-      )}
+      {/* Top accent bar */}
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 2, background: `linear-gradient(90deg, ${A}, ${A}00)` }} />
+
+      {/* Header */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20 }}>
+        <div style={{
+          width: 36, height: 36, borderRadius: 10,
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          background: `${A}15`, border: `1px solid ${A}30`,
+          color: A, flexShrink: 0,
+        }}>
+          <Icon size={18} />
+        </div>
+        <span className="text-card-title" style={{ fontWeight: 600 }}>{category.name}</span>
+      </div>
+
+      {/* Chip cloud */}
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+        {category.skills.map(skill => {
+          const years = currentYear - skill.startYear;
+          return (
+            <span
+              key={skill.name}
+              className="skill-chip"
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: 6,
+                padding: '6px 12px', borderRadius: 99,
+                background: 'var(--bg-card)',
+                border: '1px solid var(--border-color)',
+                fontSize: '0.78rem', fontWeight: 500,
+                color: 'var(--text-secondary)',
+                transition: 'all 0.2s ease',
+              }}
+            >
+              {skill.name}
+              <span style={{ color: 'var(--text-dim)', fontSize: '0.7rem', fontVariantNumeric: 'tabular-nums' }}>
+                {years}y
+              </span>
+            </span>
+          );
+        })}
+      </div>
     </motion.div>
   );
 }
@@ -256,7 +266,7 @@ export default function Home() {
                     <p className="text-small mt-sm" style={{ color: 'var(--text-dim)' }}>{item.date}</p>
                   </>
                 )},
-                { title: 'Research', items: experience.research, render: (item) => (
+                { title: 'Research & Teams', items: experience.projects, render: (item) => (
                   <>
                     <p className="text-card-title">{item.title}</p>
                     <p className="text-small mt-md" style={{ color: 'var(--text-secondary)' }}>{item.role}</p>

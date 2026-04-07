@@ -1,10 +1,10 @@
 {
   "name": "Cindy Yang",
   "initials": "CY",
-  "roles": ["full-stack developer", "robotics engineer", "space enthusiast"],
+  "roles": ["full-stack developer", "robotics engineer", "jack of some trades"],
   "heroText": "Hey! I'm an engineering student at the University of Michigan who has risked her life dabbling in CSS to bring you this website. Thank you for your time today - I hope you enjoy your stay.",
-  "aboutText": "Based in the DM(V) and studying in Ann Arbor, I'm an experienced software engineer with extensive knowledge in full-stack development and robotics. Aside from my unhealthy obsession with all things science fiction, in my free time I enjoy being an amateur musician and dedicated gym rat.",
-  "email": "",
+  "aboutText": "Based in the DM(V) and studying in Ann Arbor, I'm an experienced software engineer with extensive knowledge in full-stack development, embedded systems, and robotics. In my free time I enjoy being an amateur musician, wannabe fashionista, and sci-fi nerd. I also love flashing a softly graded climb.",
+  "email": "c.yang.2023@gmail.com",
   "resumeUrl": "/resume.pdf",
   "socials": {
     "linkedin": "https://www.linkedin.com/in/2023cyang/",

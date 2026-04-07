@@ -13,18 +13,18 @@
   --border-color: #1e1e30;
   --border-hover: #2e2e48;
 
-  --accent-home: #00d4ff;
-  --accent-home-dim: rgba(0, 212, 255, 0.06);
-  --accent-home-glow: rgba(0, 212, 255, 0.2);
+  --accent-home: #a855f7;
+  --accent-home-dim: rgba(168, 85, 247, 0.06);
+  --accent-home-glow: rgba(168, 85, 247, 0.2);
   --accent-hobby: #f0a500;
   --accent-hobby-dim: rgba(240, 165, 0, 0.06);
   --accent-hobby-glow: rgba(240, 165, 0, 0.2);
-  --accent-projects: #4ade80;
-  --accent-projects-dim: rgba(74, 222, 128, 0.06);
-  --accent-projects-glow: rgba(74, 222, 128, 0.2);
-  --accent-about: #d4a574;
-  --accent-about-dim: rgba(212, 165, 116, 0.06);
-  --accent-about-glow: rgba(212, 165, 116, 0.2);
+  --accent-projects: #f43f5e;
+  --accent-projects-dim: rgba(244, 63, 94, 0.06);
+  --accent-projects-glow: rgba(244, 63, 94, 0.2);
+  --accent-about: #4ade80;
+  --accent-about-dim: rgba(74, 222, 128, 0.06);
+  --accent-about-glow: rgba(74, 222, 128, 0.2);
 
   --font-heading: 'Sora', system-ui, sans-serif;
   --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
@@ -187,5 +187,9 @@ a { color: inherit; text-decoration: none; }
 }
 @keyframes blink { 50% { opacity: 0; } }
 
-@keyframes fillBar { from { width: 0; } }
-.skill-bar-fill { animation: fillBar 1s ease-out forwards; }
+.skill-chip:hover {
+  border-color: var(--accent-home) !important;
+  color: var(--text-primary) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px var(--accent-home-glow, rgba(168, 85, 247, 0.15));
+}

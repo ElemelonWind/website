@@ -43,21 +43,21 @@
       "date": "May 2021 - August 2021"
     }
   ],
-  "research": [
+  "projects": [
+    {
+      "title": "M-Fly: Design, Build, Fly",
+      "role": "Systems Director, Flight Systems Lead, Webmaster",
+      "date": "August 2023 - Present"
+    },
     {
       "title": "Atombot (Swarm Robotics) Research Team",
       "role": "Robotics Undergraduate Research",
-      "date": "January 2025 - Present"
+      "date": "January 2025 - May 2025"
     },
     {
       "title": "ATLAS Experiment at CERN",
       "role": "Physics Undergraduate Research",
       "date": "January 2024 - December 2024"
-    },
-    {
-      "title": "M-Fly: Design, Build, Fly",
-      "role": "Flight Systems Lead",
-      "date": "August 2023 - Present"
     },
     {
       "title": "Perplexus Solver",
