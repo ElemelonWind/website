@@ -25,10 +25,10 @@ function ProjectCard({ project, index }) {
         <img
           src={project.image}
           alt={project.title}
-          style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.5, transition: 'all 0.5s' }}
+          style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 1, transition: 'all 0.5s' }}
           onError={(e) => { e.target.style.display = 'none'; }}
         />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, var(--bg-card), transparent, transparent)', opacity: 0.7 }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, var(--bg-card) 0%, transparent 35%)', opacity: 0.6, pointerEvents: 'none' }} />
         <div style={{ position: 'absolute', top: 20, right: 20, width: 40, height: 40, borderRadius: '50%', background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: 0, transition: 'opacity 0.3s' }}>
           <ArrowUpRight size={16} color="white" />
         </div>

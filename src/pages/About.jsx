@@ -140,34 +140,73 @@ function ContactForm() {
 
 function MusicGallery({ images }) {
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))', gap: 24 }}>
-      {images.map((img, i) => (
-        <motion.figure
-          key={i}
-          {...fadeUp(i * 0.06)}
-          className="card"
-          style={{ margin: 0, overflow: 'hidden', borderRadius: 16, display: 'flex', flexDirection: 'column' }}
-        >
-          <div style={{ position: 'relative', aspectRatio: '4/3', overflow: 'hidden', background: 'var(--bg-card)' }}>
-            <img
-              src={img.src}
-              alt={img.caption}
-              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.6s' }}
-              onError={(e) => {
-                e.target.style.display = 'none';
-                e.target.nextElementSibling.style.display = 'flex';
-              }}
-            />
-            <div style={{ display: 'none', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%', position: 'absolute', inset: 0 }}>
-              <Music size={28} style={{ color: A, opacity: 0.4 }} />
+    <>
+      <style>{`
+        .music-card { position: relative; overflow: hidden; border-radius: 16px; aspect-ratio: 4/3; cursor: pointer; }
+        .music-card .music-img-wrap,
+        .music-card .music-note-overlay {
+          position: absolute; inset: 0;
+          transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .music-card .music-note-overlay { transform: translateY(100%); }
+        .music-card:hover .music-img-wrap { transform: translateY(-100%); }
+        .music-card:hover .music-note-overlay { transform: translateY(0); }
+        .music-card:focus-within .music-img-wrap { transform: translateY(-100%); }
+        .music-card:focus-within .music-note-overlay { transform: translateY(0); }
+        .music-card .music-caption-bar {
+          position: absolute; left: 0; right: 0; bottom: 0;
+          padding: 14px 18px;
+          background: linear-gradient(180deg, transparent 0%, rgba(9,9,15,0.85) 70%);
+          color: var(--text-primary);
+          font-size: 0.85rem; font-weight: 500;
+          z-index: 2;
+          transition: opacity 0.4s ease;
+        }
+        .music-card:hover .music-caption-bar,
+        .music-card:focus-within .music-caption-bar { opacity: 0; }
+      `}</style>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))', gap: 24 }}>
+        {images.map((img, i) => (
+          <motion.figure
+            key={i}
+            {...fadeUp(i * 0.06)}
+            className="card music-card"
+            style={{ margin: 0 }}
+            tabIndex={0}
+          >
+            <div className="music-img-wrap" style={{ background: 'var(--bg-card)' }}>
+              <img
+                src={img.src}
+                alt={img.caption}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.nextElementSibling.style.display = 'flex';
+                }}
+              />
+              <div style={{ display: 'none', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%', position: 'absolute', inset: 0 }}>
+                <Music size={28} style={{ color: A, opacity: 0.4 }} />
+              </div>
             </div>
-          </div>
-          <figcaption className="text-small" style={{ padding: '14px 18px', color: 'var(--text-secondary)' }}>
-            {img.caption}
-          </figcaption>
-        </motion.figure>
-      ))}
-    </div>
+            <div className="music-caption-bar">{img.caption}</div>
+            <div
+              className="music-note-overlay"
+              style={{
+                background: `linear-gradient(160deg, var(--accent-about-dim), var(--bg-card) 60%)`,
+                padding: '24px 22px',
+                display: 'flex', flexDirection: 'column', justifyContent: 'center',
+                borderTop: `2px solid ${A}`,
+              }}
+            >
+              <p className="text-label" style={{ color: A, marginBottom: 10 }}>{img.caption}</p>
+              <p className="text-small" style={{ color: 'var(--text-secondary)', lineHeight: 1.7 }}>
+                {img.note}
+              </p>
+            </div>
+          </motion.figure>
+        ))}
+      </div>
+    </>
   );
 }
 

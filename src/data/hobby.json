@@ -1,20 +1,19 @@
 {
   "intro": "Music has been a constant companion throughout my life (and has caused me to throw many a tantrum in childhood). These days, we have a friendlier relationship - here are snippets of some of my recent projects!",
   "gallery": [
-    { "src": "/images/hobby/hobby1.jpg", "caption": "Gradients 2026" },
-    { "src": "/images/hobby/hobby2.jpg", "caption": "The Hunchback of Notre Dame" },
-    { "src": "/images/hobby/hobby3.jpg", "caption": "Jesus Christ Superstar" },
-    { "src": "/images/hobby/hobby4.jpg", "caption": "Catch Me If You Can" },
-    { "src": "/images/hobby/hobby5.jpg", "caption": "Heathers" },
-    { "src": "/images/hobby/hobby6.png", "caption": "stick straight posture since day 1" }
+    { "src": "/images/hobby/hobby1.jpg", "caption": "Gradients 2026", "note": "Played keyboard in the band for the University of Michigan Musical Theatre department's biannual cabaret celebrating POC artists." },
+    { "src": "/images/hobby/hobby2.jpg", "caption": "The Hunchback of Notre Dame", "note": "Assistant Music Director and Keys 1 in MUSKET's Winter 2025 production." },
+    { "src": "/images/hobby/hobby3.jpg", "caption": "Jesus Christ Superstar", "note": "Assistant Music Director and Keys 1 in MUSKET's Fall 2024 production - shoutout to Jason, the music director!" },
+    { "src": "/images/hobby/hobby4.jpg", "caption": "Catch Me If You Can", "note": "Assistant Music Director and Keys 1 in MUSKET's Winter 2024 production - shoutout to Caitlyn, the music director!" },
+    { "src": "/images/hobby/hobby5.jpg", "caption": "Heathers", "note": "Rehearsal Pianist and Keys 1 in MUSKET's Fall 2023 production - shoutout to Teja and Jerry, my friends in the photo :)" },
+    { "src": "/images/hobby/hobby6.png", "caption": "stick straight posture since day 1", "note": "Classically trained pianist, competed and won at regional and national competitions. Performed at Carnegie Hall for the American Protege's Winners Concert in 2021." }
   ],
   "books": [
-    { "title": "Add a book title", "author": "Author Name", "cover": "/images/books/book1.jpg", "note": "A short reason this one stuck with me." },
-    { "title": "Add a book title", "author": "Author Name", "cover": "/images/books/book2.jpg", "note": "A short reason this one stuck with me." },
-    { "title": "Add a book title", "author": "Author Name", "cover": "/images/books/book3.jpg", "note": "A short reason this one stuck with me." },
-    { "title": "Add a book title", "author": "Author Name", "cover": "/images/books/book4.jpg", "note": "A short reason this one stuck with me." }
+    { "title": "The Three Body Problem", "author": "Liu Cixin", "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1415428227l/20518872._SY75_.jpg" },
+    { "title": "Project Hail Mary", "author": "Andy Weir", "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1764703833l/54493401._SY75_.jpg" },
+    { "title": "Six of Crows", "author": "Leigh Bardugo", "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1651710803l/23437156._SY75_.jpg" }
   ],
   "spotify": {
-    "embedUrl": "https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator&theme=0"
+    "embedUrl": "https://open.spotify.com/embed/playlist/3LAwoix2sdsx4Hd7wWAE5L?utm_source=generator&theme=0"
   }
 }
