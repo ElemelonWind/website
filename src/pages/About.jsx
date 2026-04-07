@@ -41,9 +41,9 @@ function PhotoCarousel() {
   return (
     <motion.div
       {...fadeUp(0.1)}
-      style={{ position: 'relative', width: '75%', margin: '0 auto', maxWidth: 420, aspectRatio: '3/4', borderRadius: 20, overflow: 'hidden', background: 'var(--bg-card)', border: '1px solid var(--border-color)' }}
+      style={{ position: 'relative', width: 'min(75vw, 320px)', margin: '0 auto', aspectRatio: '3/4', borderRadius: 20, overflow: 'hidden', background: 'var(--bg-card)', border: '1px solid var(--border-color)' }}
     >
-      <AnimatePresence mode="wait">
+      <AnimatePresence initial={false}>
         {isFailed ? (
           <motion.div
             key={`fallback-${current}`}
@@ -69,7 +69,7 @@ function PhotoCarousel() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.8 }}
-            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
             onError={() => setFailed(prev => ({ ...prev, [current]: true }))}
           />
         )}
