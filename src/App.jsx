@@ -3,7 +3,8 @@ import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import Projects from './pages/Projects';
+import ProjectsClimbing from './pages/ProjectsClimbing';
+import ProjectDetail from './pages/ProjectDetail';
 import About from './pages/About';
 
 export default function App() {
@@ -16,7 +17,8 @@ export default function App() {
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Home />} />
-            <Route path="/projects" element={<Projects />} />
+            <Route path="/projects" element={<ProjectsClimbing />} />
+            <Route path="/projects/:slug" element={<ProjectDetail />} />
             <Route path="/about" element={<About />} />
           </Routes>
         </AnimatePresence>

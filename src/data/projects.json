@@ -1,25 +1,118 @@
 {
+  "featured": [
+    {
+      "title": "Drop Mech",
+      "tools": ["C", "STM32", "Altium", "EKF", "PID", "XBee", "ArduPilot", "Onshape"],
+      "description": "An actively stabilized aerial delivery system that autonomously lowers and deploys payloads from a drone at 150ft altitude. Built for the SUAS 2026 competition.",
+      "link": "https://github.com/TSKoduru/eecs473-project",
+      "report": "https://docs.google.com/document/d/1lQXBMShS-H3dJFfyySZHFrCrBw1wYZZf",
+      "image": "/images/projects/DropMech.png",
+      "context": "Embedded Systems Capstone",
+      "detail": {
+        "overview": "Drop Mech is a winch-and-droid payload delivery system designed for the SUAS Robonation 2026 competition. A hexacopter drone lowers a tethered \"droid\" platform via a winch, which autonomously stabilizes itself during descent using onboard sensors and PID-controlled diagonal propellers. Once it detects the ground, it releases the payload and retracts.",
+        "highlights": [
+          "60.3s drop cycle time (requirement: <80s)",
+          "Droid weight: 0.9 lbs (requirement: <2 lbs)",
+          "Ground detection range: 13ft (requirement: >10ft)",
+          "Custom PCB designed in Altium and manufactured via JLCPCB",
+          "Extended Kalman Filter fuses BMI088 IMU and VL53L1X ToF sensor data",
+          "XBee wireless communication (IEEE 802.15.4) between drone and droid",
+          "Demonstrated at the College of Engineering Design Expo"
+        ],
+        "role": "Embedded systems development — firmware for the STM32 microcontroller, sensor fusion pipeline, PID tuning, and PCB bring-up."
+      }
+    },
+    {
+      "title": "MiSpace Ice Forecast",
+      "tools": ["Python", "TypeScript", "NumPy", "Jupyter", "ML", "CSS"],
+      "description": "A machine learning ice condition forecasting system with a web frontend for visualizing Arctic predictions. Won 2nd place ($10K) at MiSpace 2025.",
+      "link": "https://github.com/ElemelonWind/mispace-2025",
+      "image": "/images/projects/MiSpace.png",
+      "context": "MiSpace Hackathon",
+      "detail": {
+        "overview": "Built at the Michigan Office of Defense & Aerospace Innovation hackathon, this platform predicts Arctic ice conditions using machine learning models with hyperparameter tuning. A TypeScript web frontend lets users explore forecast results interactively.",
+        "highlights": [
+          "Won 2nd place and $10,000 prize",
+          "ML pipeline with hyperparameter tuning for ice prediction models",
+          "Interactive web-based visualization frontend",
+          "Processed satellite and environmental data for training"
+        ],
+        "role": "Full-stack development — built the frontend visualization layer and integrated the ML prediction pipeline."
+      }
+    },
+    {
+      "title": "Bayesian Localization",
+      "tools": ["Python", "PyBullet", "LiDAR", "Particle Filter", "EKF", "UKF"],
+      "description": "A comparative benchmark of three recursive Bayesian estimation algorithms for robot localization, tested on a simulated PR2 robot with a kidnapped robot challenge.",
+      "link": "https://github.com/rueyday/recursive-bayesian-estimators",
+      "report": "https://docs.google.com/document/d/1r7Wmb1LGqJ63eVuhU4EfSQSfcLOVX2hXoSDU8-sefKM/edit?usp=sharing",
+      "image": "/images/projects/BayesianLocalization.gif",
+      "context": "Algorithmic Robotics",
+      "detail": {
+        "overview": "This project benchmarks three recursive Bayesian estimation algorithms — Particle Filter, Extended Kalman Filter (EKF), and Unscented Kalman Filter (UKF) — for robot localization. A simulated PR2 robot navigates a figure-8 trajectory in PyBullet, using 2D LiDAR readings to localize itself. The \"Kidnapped Robot\" challenge tests each filter's ability to recover from sudden displacement.",
+        "highlights": [
+          "Particle Filter achieved 0.68m RMSE — best among the three",
+          "Only the Particle Filter recovered from the kidnapped robot scenario without manual re-initialization",
+          "3,000 particles used for the Particle Filter implementation",
+          "Full simulation environment built in PyBullet with PR2 URDF model",
+          "Quantitative comparison across position RMSE, heading error, and recovery time"
+        ],
+        "role": "Algorithm implementation and benchmarking — implemented all three filters, built the simulation harness, and ran comparative analysis."
+      }
+    },
+    {
+      "title": "wubwub",
+      "tools": ["Vite", "React", "Tailwind", "Flask", "Arduino", "Mediapipe", "OpenCV"],
+      "description": "An interactive music visualizer that uses hand gestures to control playback and audio effects. Won grand prize at BigRed Hacks 2025.",
+      "link": "https://github.com/cindyzli/wubwub",
+      "image": "/images/projects/wubwub.png",
+      "context": "BigRed Hacks 2025",
+      "detail": {
+        "overview": "wubwub is a gesture-controlled music visualizer that lets you manipulate audio in real time using hand movements. MediaPipe tracks hand landmarks through a webcam, an Arduino provides haptic feedback, and a Flask backend processes audio effects. The React frontend renders real-time visualizations that respond to both the music and your gestures.",
+        "highlights": [
+          "Won grand prize at BigRed Hacks 2025",
+          "Real-time hand gesture recognition via MediaPipe",
+          "Audio effect processing through Flask backend",
+          "Arduino integration for haptic feedback",
+          "Responsive music visualizations built in React"
+        ],
+        "role": "Full-stack — built the React visualizer frontend, integrated MediaPipe hand tracking, and connected the audio processing pipeline."
+      }
+    },
+    {
+      "title": "Pi-Pal",
+      "tools": ["Python", "OpenCV", "Mediapipe", "Next.js", "MongoDB", "RPi", "Tailwind"],
+      "description": "A gesture-controlled hospital room system powered by computer vision and demo-ed with a Raspberry Pi. Won grand prize at Hoya Hacks 2025.",
+      "link": "https://github.com/cindyzli/pi-pal",
+      "image": "/images/projects/PiPal.png",
+      "context": "Hoya Hacks 2025",
+      "detail": {
+        "overview": "Pi-Pal is a hands-free hospital room control system designed for patients with limited mobility. A Raspberry Pi with a camera uses MediaPipe and OpenCV to recognize hand gestures, letting patients control room features — lights, TV, nurse call — without touching anything. A Next.js dashboard provides a web interface for configuration and monitoring.",
+        "highlights": [
+          "Won grand prize at Hoya Hacks 2025",
+          "Gesture recognition via MediaPipe + OpenCV on Raspberry Pi",
+          "Next.js web dashboard for room control and monitoring",
+          "MongoDB backend for patient preferences and room state",
+          "Designed for accessibility in hospital environments"
+        ],
+        "role": "Computer vision pipeline — built the gesture recognition system on the Raspberry Pi and connected it to the web dashboard."
+      }
+    }
+  ],
   "projects": [
+    {
+      "title": "Portfolio",
+      "tools": ["React", "Vite", "Tailwind", "Framer Motion"],
+      "description": "huh, this looks familiar.",
+      "link": "https://github.com/ElemelonWind/website",
+      "image": "/images/projects/Portfolio.png"
+    },
     {
       "title": "WordHawk",
       "tools": ["Vite", "React", "Tailwind", "OCR", "RPi", "GCode"],
       "description": "A repurposed 3D printer that plays Word Hunt for you! Won Best Use of MemryX at MHacks 2025.",
       "link": "https://github.com/TSKoduru/mhacks-gamehawk",
       "image": "/images/projects/WordHawk.png"
-    },
-    {
-      "title": "wubwub",
-      "tools": ["Vite", "React", "Tailwind", "Flask", "Arduino", "Mediapipe", "OpenCV"],
-      "description": "An interactive music visualizer that uses hand gestures to control music playback and audio effects. Won grand prize at BigRed Hacks 2025.",
-      "link": "https://github.com/cindyzli/wubwub",
-      "image": "/images/projects/wubwub.png"
-    },
-    {
-      "title": "Pi-Pal",
-      "tools": ["Python", "OpenCV", "Mediapipe", "Next.js", "MongoDB", "RPi", "Tailwind"],
-      "description": "A gesture-controlled hospital room system powered by an advanced computer vision model and demo-ed with a Raspberry Pi. Won grand prize at Hoya Hacks 2025.",
-      "link": "https://github.com/cindyzli/pi-pal",
-      "image": "/images/projects/PiPal.png"
     },
     {
       "title": "Osulation",
@@ -34,6 +127,13 @@
       "description": "An empathetic tutor that uses AI to provide personalized feedback to students. Won Best Use of Intel at Berkeley AI Hackathon 2024.",
       "link": "https://github.com/Accel-EmpatheticTutor/Accel",
       "image": "/images/projects/Accel.png"
+    },
+    {
+      "title": "Polysolaris",
+      "tools": ["React", "Tailwind", "JavaScript"],
+      "description": "An n-body gravitational system simulation inspired by the Three Body Problem.",
+      "link": "https://github.com/ElemelonWind/polysolaris",
+      "image": "/images/projects/Polysolaris.png"
     },
     {
       "title": "OneVote",

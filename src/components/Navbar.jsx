@@ -19,7 +19,9 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const current = navItems.find(n => n.path === location.pathname) || navItems[0];
+  const current = navItems.find(n => n.path === location.pathname)
+    || navItems.find(n => n.path !== '/' && location.pathname.startsWith(n.path))
+    || navItems[0];
   const accent = accentMap[current.theme];
 
   useEffect(() => {

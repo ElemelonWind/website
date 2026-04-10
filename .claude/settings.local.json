@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(npx vite:*)",
+      "Bash(ls /c/Users/Cindy/projects/portfolio-v3/src/pages/Project*.jsx)"
+    ]
+  }
+}
