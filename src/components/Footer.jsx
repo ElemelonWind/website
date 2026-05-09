@@ -1,10 +1,11 @@
-import { GitHubIcon, LinkedInIcon, InstagramIcon } from './SocialIcons';
+import { GitHubIcon, LinkedInIcon, InstagramIcon, SubstackIcon } from './SocialIcons';
 import personal from '../data/personal.json';
 
 const socialIcons = {
   linkedin: LinkedInIcon,
   github: GitHubIcon,
   instagram: InstagramIcon,
+  substack: SubstackIcon,
 };
 
 export default function Footer() {

@@ -333,21 +333,49 @@ export default function About() {
           </div>
         </section>
 
-        {/* Contact */}
+        {/* Contact + Substack */}
         <section className="section-gap" style={{ position: 'relative', zIndex: 10 }}>
           <div className="page-container">
-            <SectionHeading accent={A}>Get In Touch</SectionHeading>
-            <div style={{ maxWidth: 520 }}>
-              <motion.p
-                {...fadeUp()}
-                className="text-body"
-                style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: 40 }}
-              >
-                Want to roast this website? Drop me a message.
-              </motion.p>
-              <motion.div {...fadeUp(0.1)}>
-                <ContactForm />
-              </motion.div>
+            <div className="music-split">
+              <div>
+                <SectionHeading accent={A}>Get In Touch</SectionHeading>
+                <motion.p
+                  {...fadeUp()}
+                  className="text-body"
+                  style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: 40 }}
+                >
+                  Want to roast this website? Drop me a message.
+                </motion.p>
+                <motion.div {...fadeUp(0.1)}>
+                  <ContactForm />
+                </motion.div>
+              </div>
+              <div>
+                <SectionHeading accent={A}>Stay In Touch</SectionHeading>
+                <motion.p
+                  {...fadeUp()}
+                  className="text-body"
+                  style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: 40 }}
+                >
+                  For half-formed thoughts and the occasional rant.
+                </motion.p>
+                <motion.div
+                  {...fadeUp(0.1)}
+                  className="card"
+                  style={{ overflow: 'hidden', padding: 12 }}
+                >
+                  <iframe
+                    src="https://elemelonwind.substack.com/embed"
+                    width="100%"
+                    height="320"
+                    frameBorder="0"
+                    scrolling="no"
+                    loading="lazy"
+                    style={{ borderRadius: 12, display: 'block', background: 'white' }}
+                    title="Substack"
+                  />
+                </motion.div>
+              </div>
             </div>
           </div>
         </section>
